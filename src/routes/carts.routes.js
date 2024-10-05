@@ -1,8 +1,12 @@
 import { Router } from "express"
 import { readDataFromFile, writeDataToFile } from '../utils.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
 
 const router = Router();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const cartsFilePath = path.join(__dirname, '../carrito.json');
 
 let carts = readDataFromFile(cartsFilePath); 

@@ -1,13 +1,17 @@
 import { Router } from "express";
 import { readDataFromFile, writeDataToFile } from '../utils.js';
-const router = Router();
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+
+
+const router = Router();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const productsFilePath = path.join(__dirname, '../data/products.json');
 
 let products = readDataFromFile(productsFilePath); 
-
-//endpoints//
 
 // GET /
 router.get('/', (req, res) => {
@@ -60,5 +64,6 @@ router.delete('/:pid', (req, res) => {
     writeDataToFile(productsFilePath, products); 
     res.status(204).send();
 });
+
 
 export default router;
