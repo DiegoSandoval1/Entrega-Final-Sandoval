@@ -1,0 +1,19 @@
+<!-- views/products.handlebars -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Productos Disponibles</h1>
+    {{#each products}}
+    <div class="product">
+        <h2>{{name}}</h2>
+        <p>Precio: ${{price}}</p>
+        <p>{{description}}</p>
+    </div>
+    {{/each}}
+
+</body>
+</html>
